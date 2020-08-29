@@ -285,7 +285,14 @@ input, select, textarea {
 				}
 
 		}
-		
+
+/* fixes picture of myself overflowing text below */
+@media only screen and (max-width: 1280px) {
+	.padded-container {
+		margin-bottom: 70px;
+	}
+}
+
 /* Row */
 
 	.row {
