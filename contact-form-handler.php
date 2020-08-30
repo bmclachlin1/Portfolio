@@ -15,7 +15,7 @@
         $headers = "From: ".$from_email;
         $txt =  "You have received an e-mail from $name.\n". 
                 "Message: $message.\n";
-        $text = str_replace("\n.", "\n..", $text);
+        $txt = str_replace("\n.", "\n..", $txt);
     
         if(mail($to_email, $subject, $txt, $headers)) {
             echo "true";
