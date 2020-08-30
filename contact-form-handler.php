@@ -1,9 +1,9 @@
 <?php
-    if(isset($_POST('submit'))) {
-        $name = $_POST('name');
-        $from_email = $_POST('email');
-        $subject = $_POST('subject');
-        $message = $_POST('message');
+     if(isset($_POST['submit'])) {
+        $name = $_POST['name'];
+        $from_email = $_POST['email'];
+        $subject = $_POST['subject'];
+        $message = $_POST['message'];
     
         $to_email = "blake.mclachlin@icloud.com";
         
@@ -12,6 +12,6 @@
     
         mail($to_email, $subject, $txt, $headers);
     
-        header("Location: index.php?mailsend");
-    }
+        header("Location: index.html");
+     }
 ?>
