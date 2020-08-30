@@ -14,7 +14,7 @@
 
      if(isset($_POST['submit'])) {
         $name = $_POST['name'];
-        $from_email = $_POST['email'];
+        $from_email = "blake.mclachlin@icloud.com";
         $subject = $_POST['subject'];
         $message = $_POST['message'];
     
