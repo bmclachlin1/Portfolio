@@ -5,13 +5,13 @@
         $subject = $_POST('subject');
         $message = $_POST('message');
     
-        $to_email = 'blake.mclachlin@icloud.com';
+        $to_email = "blake.mclachlin@icloud.com";
         
         $headers = "From: ".$from_email;
         $txt = "You have received an e-mail from ".$name.".\n\n".$message;
     
         mail($to_email, $subject, $txt, $headers);
     
-        // header("Location: index.php?mailsend");
+        header("Location: index.php?mailsend");
     }
 ?>
