@@ -17,8 +17,12 @@
                 "Message: $message.\n";
         $txt = str_replace("\n.", "\n..", $txt);
     
-        mail($to_email, $subject, $txt, $headers);
+        if (mail($to_email, $subject, $txt, $headers)) {
+            echo "true";
+        } else {
+            echo "false";
+        }
 
-        header("Location: index.html");
+        //header("Location: index.html");
      }
 ?>
