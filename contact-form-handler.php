@@ -1,26 +1,40 @@
 <?php
 
+    require 'vendor/autoload.php';
+
     error_reporting(-1);
     ini_set('display_errors', 'On');
     set_error_handler("var_dump");
 
      if(isset($_POST['submit'])) {
         $name = $_POST['name'];
-        $from_email = "blake.mclachlin@icloud.com";
+        $FROM_EMAIL = $_POST['email'];
+        $TO_EMAIL = "blake.mclachlin@icloud.com";
         $subject = $_POST['subject'];
         $message = $_POST['message'];
     
-        $to_email = "blake.mclachlin@icloud.com";
+        $from = new SendGrid\Email(null, $FROM_EMAIL);
+	    $to = new SendGrid\Email(null, $TO_EMAIL);
         
-        $headers = "From: ".$from_email;
-        $txt =  "You have received an e-mail from $name.\n". 
-                "Message: $message.\n";
-        $txt = str_replace("\n.", "\n..", $txt);
-    
-        if (mail($to_email, $subject, $txt, $headers)) {
-            echo "true";
+        $API_KEY = getenv('SENDGRID_API_KEY');
+
+        $htmlContent = '';
+
+        // Create Sendgrid content
+        $content = new SendGrid\Content("text/html",$htmlContent);
+
+        // Create a mail object
+        $mail = new SendGrid\Mail($from, $subject, $to, $message);
+        
+        $sg = new \SendGrid($API_KEY);
+
+        $response = $sg->client->mail()->send()->post($mail);
+                
+        if ($response->statusCode() == 202) {
+            // Successfully sent
+            echo 'done';
         } else {
-            echo "false";
+            echo 'false';
         }
 
         //header("Location: index.html");
