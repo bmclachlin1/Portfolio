@@ -1,3 +1,4 @@
-Portfolio website to learn more about me and showcase some of my recent projects
+Portfolio Website
 
-Visit it here: http://blakemclachlin.herokuapp.com/
+Link: https://blakemclachlin.netlify.app
+
