@@ -1,3 +1,3 @@
-Portfolio website to learn more about me and showcase some of my recent projects
+Portfolio Website
 
-Netlify version
+Link: https://blakemclachlin.netlify.app
